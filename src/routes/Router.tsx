@@ -4,6 +4,7 @@ import AuthLayout from "../shared/layouts/AuthLayout";
 import MainLayout from "../shared/layouts/MainLayout";
 import LoginPage from "@/pages/LoginPage";
 import RegisterPage from "@/pages/RegisterPage";
+import MainPage from "@/pages/MainPage";
 
 const Router = () => {
     return (
@@ -17,7 +18,7 @@ const Router = () => {
 
         {/* main layout */}
         <Route element={<MainLayout />}>
-          <Route path={routes.main} element={<h1>Main Page</h1>} />
+          <Route path={routes.main} element={<MainPage />} />
         </Route>
   
       </Routes>

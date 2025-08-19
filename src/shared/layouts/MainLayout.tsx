@@ -1,30 +1,16 @@
 import { Outlet } from "react-router-dom";
-import classNameMerge from "../utils/classNameMerge";
-import type { ReactNode } from "react";
+import Header from "@/shared/components/organisms/Header";
+import Footer from "@/shared/components/organisms/Footer";
 
-const MainLayout = ({
-  className,
-  children,
-}: {
-  className?: string;
-  children?: ReactNode;
-}) => {
+const MainLayout = () => {
   return (
-    <>
-      <div
-        className={classNameMerge(
-          `font-pretendard flex h-fit w-full`,
-          className
-        )}
-      >
-        {/* main content area */}
-        <div className="ml-[265px] h-fit flex-1">
-          <div className="mt-[75px] flex w-full justify-center px-[17.3%]">
-            {children || <Outlet />}
-          </div>
-        </div>
-      </div>
-    </>
+    <div className="min-h-screen bg-white">
+      <Header />
+      <main className="flex-1">
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
   );
 };
 

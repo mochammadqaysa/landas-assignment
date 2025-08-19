@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import AuthLayout from '@/shared/layouts/AuthLayout';
 import FormInput from '@/shared/components/molecules/FormInput';
 import BasicButton from '@/shared/components/atoms/buttons/BasicButton';
 import BasicText from '@/shared/components/atoms/texts/BasicText';
@@ -81,25 +80,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <AuthLayout>
-      <div className="text-center mb-6">
-        <BasicText
-          as="h2"
-          size="2xl"
-          weight="bold"
-        >
-          회원가입
-        </BasicText>
-        <BasicText
-          size="sm"
-          color="muted"
-          className="mt-2"
-        >
-          LANDAS와 함께하세요
-        </BasicText>
-      </div>
-
-      <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6">
         {errors.general && (
           <div className="bg-red-50 border border-red-200 rounded-md p-4">
             <BasicText size="sm" color="destructive">
@@ -172,6 +153,5 @@ export default function RegisterPage() {
           </BasicText>
         </div>
       </form>
-    </AuthLayout>
   );
 }
