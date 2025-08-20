@@ -128,6 +128,7 @@ export default function LoginPage() {
         type="submit"
         fullWidth
         disabled={isLoading}
+        onClick={() => navigate(routes.main)}
         className="!bg-gray-400 !text-white hover:!bg-gray-500"
       >
         {isLoading ? '로그인 중...' : '로그인'}
