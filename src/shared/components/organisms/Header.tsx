@@ -71,9 +71,20 @@ export default function Header() {
               </svg>
             </button>
 
+            {/* Search Icon */}
+            <button 
+              className="hover:text-primary-400 transition-colors"
+              // You can add onClick handler for search here if needed
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth={2} />
+                <line x1="16.65" y1="16.65" x2="21" y2="21" stroke="currentColor" strokeWidth={2} strokeLinecap="round" />
+              </svg>
+            </button>
+
             {/* Currency */}
-            <BasicText size="sm" className="hidden sm:block">
-              ₩0
+            <BasicText size="sm" className="hidden sm:block text-white">
+              로그아웃
             </BasicText>
 
             {/* Mobile Menu Button */}

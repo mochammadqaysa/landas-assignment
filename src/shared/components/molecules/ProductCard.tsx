@@ -1,5 +1,4 @@
 import BasicText from '@/shared/components/atoms/texts/BasicText';
-import BasicButton from '@/shared/components/atoms/buttons/BasicButton';
 
 type ProductCardProps = {
   image: string;
@@ -28,7 +27,7 @@ export default function ProductCard({
     return Array.from({ length: 5 }, (_, index) => (
       <svg
         key={index}
-        className={`w-4 h-4 ${
+        className={`w-3 h-3 ${
           index < rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
         }`}
         viewBox="0 0 20 20"
@@ -40,38 +39,38 @@ export default function ProductCard({
   };
 
   return (
-    <div className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow ${className || ''}`}>
-      <div className="aspect-square overflow-hidden">
+    <div className={`bg-white rounded-lg overflow-hidden hover:shadow-md transition-shadow ${className || ''}`}>
+      <div className="aspect-[4/5] overflow-hidden bg-gray-50">
         <img
           src={image}
           alt={title}
           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
         />
       </div>
-      <div className="p-4">
+      <div className="p-3">
         <BasicText
-          size="sm"
-          weight="medium"
-          className="line-clamp-2 mb-2"
+          size="xs"
+          weight="normal"
+          className="line-clamp-2 mb-2 text-gray-800 leading-tight"
         >
           {title}
         </BasicText>
         
         <div className="flex items-center mb-2">
-          <div className="flex items-center mr-2">
+          <div className="flex items-center mr-1">
             {renderStars(rating)}
           </div>
-          <BasicText size="xs" color="muted">
+          <BasicText size="xs" color="muted" className="text-gray-400">
             ({reviews})
           </BasicText>
         </div>
 
         {colors.length > 0 && (
-          <div className="flex items-center gap-2 mb-3">
-            {colors.map((color, index) => (
+          <div className="flex items-center gap-1 mb-2">
+            {colors.slice(0, 4).map((color, index) => (
               <div
                 key={index}
-                className="w-4 h-4 rounded-full border border-gray-300"
+                className="w-3 h-3 rounded-full border border-gray-200"
                 style={{ backgroundColor: color }}
               />
             ))}
@@ -79,31 +78,25 @@ export default function ProductCard({
         )}
 
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <BasicText
-              size="lg"
-              weight="bold"
+              size="sm"
+              weight="medium"
               color="primary"
+              className="text-gray-800"
             >
               {price}
             </BasicText>
             {originalPrice && (
               <BasicText
-                size="sm"
+                size="xs"
                 color="muted"
-                className="line-through"
+                className="line-through text-gray-400"
               >
                 {originalPrice}
               </BasicText>
             )}
           </div>
-          <BasicButton
-            size="sm"
-            variant="primary"
-            onClick={onAddToCart}
-          >
-            장바구니
-          </BasicButton>
         </div>
       </div>
     </div>

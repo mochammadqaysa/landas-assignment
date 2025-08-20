@@ -12,6 +12,7 @@ export default {
       },
       fontFamily: {
         sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        'zen-dots': ['Zen Dots', 'cursive'], // Tambahkan ini
       }
     },
   },
