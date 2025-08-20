@@ -3,6 +3,7 @@ import { create } from 'zustand';
 type User = {
   id: string;
   email: string;
+  password: string;
   name: string;
 };
 
@@ -37,6 +38,7 @@ const useAuthStore = create<AuthStore>((set) => ({
         id: '1',
         email,
         name: email.split('@')[0],
+        password,
       };
 
       set({
@@ -44,9 +46,13 @@ const useAuthStore = create<AuthStore>((set) => ({
         isAuthenticated: true,
         isLoading: false,
       });
-    } catch (error) {
+    } catch (error: unknown) {
       set({ isLoading: false });
-      throw new Error('로그인에 실패했습니다.');
+      if (error instanceof Error) {
+        throw new Error(`로그인에 실패했습니다. ${error.message}`);
+      } else {
+        throw new Error('로그인에 실패했습니다.');
+      }
     }
   },
 
@@ -60,6 +66,7 @@ const useAuthStore = create<AuthStore>((set) => ({
         id: '1',
         email,
         name,
+        password,
       };
 
       set({
@@ -67,9 +74,13 @@ const useAuthStore = create<AuthStore>((set) => ({
         isAuthenticated: true,
         isLoading: false,
       });
-    } catch (error) {
+    } catch (error: unknown) {
       set({ isLoading: false });
-      throw new Error('회원가입에 실패했습니다.');
+      if (error instanceof Error) {
+        throw new Error(`로그인에 실패했습니다. ${error.message}`);
+      } else {
+        throw new Error('로그인에 실패했습니다.');
+      }
     }
   },
 

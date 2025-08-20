@@ -21,7 +21,6 @@ export default function ProductCard({
   reviews,
   colors = [],
   className,
-  onAddToCart,
 }: ProductCardProps) {
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, index) => (

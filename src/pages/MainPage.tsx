@@ -1,12 +1,9 @@
 import { useState } from 'react';
 import BasicText from '@/shared/components/atoms/texts/BasicText';
-import BasicButton from '@/shared/components/atoms/buttons/BasicButton';
 import ProductCard from '@/shared/components/molecules/ProductCard';
-import useProductStore from '@/shared/stores/productStore';
 
 export default function MainPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const { featuredProducts, products } = useProductStore();
 
   const heroSlides = [
     {
